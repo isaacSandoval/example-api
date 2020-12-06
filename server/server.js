@@ -23,7 +23,9 @@ app.post("/send-email", async(req, res) => {
     var phone = req.body.phone; 
 
     var transporter = nodemailer.createTransport({
-        service: "Gmail",
+        service: "smtp.gmail.com",
+        port: 587,
+        secure: false,
         auth: {
             user: "udocs.team@gmail.com",
             pass: "udocs es el mejor"
