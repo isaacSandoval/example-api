@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-app.get('/', (req, resp) => {
+app.get('/', (req, res) => {
     res.send("API PARA ENVIAR CORREOS LANDING PAGE A UDOCS.TEAM@GMAIL.COM")
 });
 
