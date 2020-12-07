@@ -6,14 +6,6 @@ var nodemailer = require("nodemailer");
 
 const bodyParser = require('body-parser');
 
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
-    res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
-    next();
-});
-
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 
@@ -31,8 +23,7 @@ app.post("/send-email", async(req, res) => {
     var phone = req.body.phone; 
 
     var transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
-        port: 465,
+        service: "Gmail",
         auth: {
             user: "udocs.team@gmail.com",
             pass: "udocs es el mejor"
