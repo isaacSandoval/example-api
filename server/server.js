@@ -1,4 +1,5 @@
 require('./config/config');
+require('dotenv').config();
 
 const express = require('express');
 const app = express();
@@ -25,10 +26,13 @@ app.post("/send-email", async(req, res) => {
     var transporter = nodemailer.createTransport({
         service: "Gmail",
         auth: {
-            user: "udocs.team@gmail.com",
-            pass: "udocs es el mejor"
+            user: process.env.EMAIL,
+            pass: process.env.PASSWORD
         }
     });
+
+    console.log(process.env.EMAIL);
+    
 
     var mailOptions = {
         from: email,
