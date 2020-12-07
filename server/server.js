@@ -26,13 +26,10 @@ app.post("/send-email", async(req, res) => {
     var transporter = nodemailer.createTransport({
         service: "Gmail",
         auth: {
-            user: process.env.EMAIL,
-            pass: process.env.PASSWORD
+            user: "udocs.team@gmail.com",
+            pass: "udocs es el mejor"
         }
     });
-
-    console.log(process.env.EMAIL);
-    
 
     var mailOptions = {
         from: email,
